@@ -9,10 +9,16 @@ public class Player_fire : MonoBehaviour
     public Transform firePoint;
     [SerializeField] private float FüzeSp = 10f;
 
+    //[SerializeField] private AudioSource füzesesi;
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        //Ateþ tuþunu mouse'a taþýyarak tek elle rahat oynanýlabilecek hale getirdim.
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
+            /*eðer elimde ses olsaydý bu þekilde eklerdim
+              füzesesi.Play();
+             */
             fire();
         }
 
@@ -31,6 +37,6 @@ public class Player_fire : MonoBehaviour
 
         Rigidbody2D rb = Fz.GetComponent<Rigidbody2D>();
 
-        rb.velocity = Vector2.up * FüzeSp;
+        rb.velocity = firePoint.up * FüzeSp;
     }
 }

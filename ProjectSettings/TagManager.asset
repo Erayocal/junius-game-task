@@ -6,6 +6,9 @@ TagManager:
   tags:
   - asteroid
   - "F\xFCze"
+  - Hedef
+  - shield
+  - Shield_player
   layers:
   - Default
   - TransparentFX

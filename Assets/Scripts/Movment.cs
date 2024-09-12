@@ -22,9 +22,9 @@ public class Movment : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Astroit ile üç çarpýþmada oyuncuyu öldürme
+        // Astroit ile dört çarpýþmada oyuncuyu öldürme
         hit_count++;
-        if (collision.gameObject.CompareTag("asteroid") && hit_count >= 3)
+        if (collision.gameObject.CompareTag("asteroid") && hit_count >= 4)
         {
             //Oyuncuyu Destroy etmek yerine aktifliðini kapatarak takip eden düþmanlarýn hata vermesini engelledim.
             gameObject.SetActive(false);

@@ -16,6 +16,7 @@ public class Astroits : MonoBehaviour
     }
     private void Update()
     {
+        //yok edilen astriylerin sayýsýný ekranda gösterir.
         ast_sayac.text= sayac.ToString();
     }
 

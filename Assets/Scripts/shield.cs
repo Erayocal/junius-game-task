@@ -4,16 +4,18 @@ using UnityEngine;
 public class shield : MonoBehaviour
 {
     public GameObject shieldPrefab;
+    //cameranýn dýþýnda yaratýlmamasý için aralýklar.
     public Vector2 spX = new Vector2(-10f, 10f);
     public Vector2 spY = new Vector2(-3f, 4f);
     private void Start()
     {
+        //oyun baþlangýcýnda 5 saniye sonra ilk toplanabilir kalkaný yaratma.
         InvokeRepeating("CreateShield", 5, 20f);
     }
 
     private void CreateShield()
     {
-
+        //belirli aralýklarda restgele oluþturulur.
         Vector3 randomPos = new Vector3(
                   Random.Range(spX.x, spX.y),
                   Random.Range(spY.x, spY.y), 0);

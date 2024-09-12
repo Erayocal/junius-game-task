@@ -17,7 +17,7 @@ public class Füze_circle : MonoBehaviour
         }
     }
 
-    //Oyuncu space tuþuna basttýðý zaman etrafýnda 360 derecede füzeller çýkar ve hepsi ayrý yönlere ilerler.
+    //Oyuncu space tuþuna bastýðý zaman 360 derece etrafýnda füzeler oluþur.
     private void FireFuze()
     {
         float acýAralýk = 360f / numFüze;
@@ -25,9 +25,8 @@ public class Füze_circle : MonoBehaviour
 
         for (int i = 0; i < numFüze; i++)
         {
-           
+            
             Vector2 yon = Quaternion.Euler(0, 0, acý) * Vector2.up * fireR;
-            Vector3 füzePosition = firePoint.position + (Vector3)yon;
             
             GameObject fz = Instantiate(füzePrefab, firePoint.position, Quaternion.identity);
             Rigidbody2D rb = fz.GetComponent<Rigidbody2D>();

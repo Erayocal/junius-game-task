@@ -1,42 +1,44 @@
 
+using System.Reflection;
 using UnityEngine;
 
 public class Player_fire : MonoBehaviour
 {
 
-    public GameObject Füze;
-    public GameObject Fz;
-    public Transform firePoint;
-    [SerializeField] private float FüzeSp = 10f;
+    [SerializeField] private GameObject fuzePrefab;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float fuzesp;
+    [SerializeField] private int poolSize;
 
-    //[SerializeField] private AudioSource füzesesi;
+    private ObjectPool<Fuze_controle> fuzePool;
 
-    void Update()
+    private void Awake()
     {
-        //Ateþ tuþunu mouse'a taþýyarak tek elle rahat oynanýlabilecek hale getirdim.
-        if(Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            /*eðer elimde ses olsaydý bu þekilde eklerdim
-              füzesesi.Play();
-             */
-            fire();
-        }
+        fuzePool = new ObjectPool<Fuze_controle>(fuzePrefab.GetComponent<Fuze_controle>(), poolSize, this.transform);
+    }
 
-        //oyun ekranýndan çýktýktan sonra yok etmesi için
-        if (transform.position.y > 15f)
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            Destroy(gameObject);
+            Fire();
         }
 
     }
-
-    private void fire()
+    private void Fire()
     {
-        //Füze yaratma ve hareketi
-        GameObject Fz = Instantiate(Füze, firePoint.position, firePoint.rotation);
-
-        Rigidbody2D rb = Fz.GetComponent<Rigidbody2D>();
-
-        rb.velocity = firePoint.up * FüzeSp;
+        // Havuzdan füze al ve ateþle
+        Fuze_controle fuze = fuzePool.Get();
+        fuze.transform.position = firePoint.position;
+        fuze.transform.rotation = firePoint.rotation;
+        fuze.Initialize(fuzesp);
     }
+
+    public void ReturnMissileToPool(Fuze_controle missile)
+    {
+        fuzePool.ReturnToPool(missile);
+    }
+
+    
 }

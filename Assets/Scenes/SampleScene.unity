@@ -696,6 +696,7 @@ GameObject:
   - component: {fileID: 1901998221}
   - component: {fileID: 1901998223}
   - component: {fileID: 1901998224}
+  - component: {fileID: 1901998225}
   m_Layer: 0
   m_Name: Game_manager
   m_TagString: Untagged
@@ -715,14 +716,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ec1e154dbe2704a88e5d70bc0f759c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  astroidPrefabs:
-  - {fileID: 4115592325477155762, guid: 5e5bc5bfe1c5a864aa0cc14a7efff17b, type: 3}
-  - {fileID: 6686452768709118150, guid: a31302883e90e14418cedf40f2b43d56, type: 3}
-  - {fileID: 7805238807235494434, guid: 4261eff7474d6494eaf1a905b4d8e701, type: 3}
-  - {fileID: 2595892548117983823, guid: 6f328875b1091c64bbbecf0db225046c, type: 3}
-  - {fileID: 7268896399589421435, guid: 937b13489eeaaa34bb7c4dbfae83f444, type: 3}
-  sayac: 0
-  ast_sayac: {fileID: 780572409}
+  smallAsteroidPrefab: {fileID: 4115592325477155762, guid: 5e5bc5bfe1c5a864aa0cc14a7efff17b, type: 3}
+  mediumAsteroidPrefab: {fileID: 6686452768709118150, guid: a31302883e90e14418cedf40f2b43d56, type: 3}
+  largeAsteroidPrefab: {fileID: 7805238807235494434, guid: 4261eff7474d6494eaf1a905b4d8e701, type: 3}
 --- !u!4 &1901998222
 Transform:
   m_ObjectHideFlags: 0
@@ -765,6 +761,20 @@ MonoBehaviour:
   shieldPrefab: {fileID: 8614755822399284021, guid: d58d9c1921cafe4469427414afc0fd2a, type: 3}
   spX: {x: -10, y: 10}
   spY: {x: -3, y: 4}
+--- !u!114 &1901998225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901998220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21a9d36f746b3e40a98eea431f65a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidPool: {fileID: 1901998221}
+  poolSize: 1
 --- !u!1 &1981307696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: 80e1c6db99db2934eb50947615a5aae4, type: 3}

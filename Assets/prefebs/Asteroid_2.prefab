@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e078886d6b831e441a66bdf0f0d75f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asteroidType: 2
   sp: -100
   ast_health: 30
 --- !u!50 &-6464248489661749521
